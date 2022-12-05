@@ -1,0 +1,63 @@
+.carousel-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.carousel-container h2{
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.carousel{
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    margin-top: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: 460px;
+}
+
+.carousel::-webkit-scrollbar{
+    display: none;
+}
+
+.prev-card{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100px;
+    height: calc(100% - 60px);
+    background-image: linear-gradient(to left, transparent, #000);
+}
+
+.icon-prev{
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(0, -50%);
+    color: #4703A6;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.next-card{
+    position: absolute;
+    top: 60px;
+    left: 100%;
+    transform: translate(-100%, 0);
+    width: 100px;
+    height: calc(100% - 60px);
+    background-image: linear-gradient(to right, transparent, #000);
+}
+
+.icon-next{
+    position: absolute;
+    top: 50%;
+    left: calc(100% - 50px);
+    transform: translate(0, -50%);
+    color: #4703A6;
+    font-size: 3rem;
+    cursor: pointer;
+}
