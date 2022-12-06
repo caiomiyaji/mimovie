@@ -1,65 +1,84 @@
-.card-container{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 310px;
-}
-
 .card{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    min-width: 400px;
     border-radius: 15px;
-    background-color: #120029;
-    transition: all .3s ease-in-out;
     cursor: pointer;
 }
 
-.card:hover{
-    transform: scale(1.4);
-    z-index: 5;
-    padding: 10px;
+.card figure{
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
 }
 
 .card img{
     width: 100%;
-    height: 300px;
     border-radius: 15px;
-    object-fit: cover;
-    object-position: top;
+    background-color: #000;
+    transition: opacity .5s ease-in-out, transform .5s ease-in-out;
 }
 
 .card:hover img{
-    width: 100%;
-    height: 200px;
-    border-radius: 15px;
-    object-fit: cover;
-    object-position: top;
+    transform: scale(1.4);
+    opacity: 0.5;
+}
+
+.card-play-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    color: #4703a6;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+.card:hover .card-play-icon{
+    opacity: 1;
 }
 
 .card h3{
-    display: none;
     margin-top: 10px;
     font-size: 1.2rem;
+    font-weight: normal;
     color: #fff;
 }
 
-.card:hover h3{
-    display: block;
-    font-size: 1rem;
+.card-infos{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
-.card p{
-    display: none;
-    margin-top: 20px;
+.card-infos p{
     color: #fff;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 0.8rem;
+    font-weight: 300;
 }
 
-.card:hover p{
-    display: -webkit-box;
-    font-size: .7rem;
+.card-genres{
+    display: flex;
+    gap: 10px;
+}
+
+.card-genres p span{
+    color: #d8315b;
+}
+
+.rating-container{
+    display: flex;
+    justify-content: end;
+}
+
+.rating-icon{
+    color: #d8315b;
+    margin-right: 5px;
+}
+
+.rating-container p{
+    color: #fff;
+    font-size: .8rem;
 }

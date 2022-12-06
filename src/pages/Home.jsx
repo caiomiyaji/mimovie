@@ -1,4 +1,6 @@
 import Carousel from '../components/Carousel'
+import HomeSection1 from '../components/HomeSection1';
+
 import './home.css';
 
 function Home () {
@@ -6,13 +8,13 @@ function Home () {
     const apiKey = import.meta.env.VITE_API_KEY;
 
     return(
-        <>
-            <h1>Home</h1>
+        <>  
+            <HomeSection1 apiKey={apiKey}/>
             <div className='movies-carousel'>
-                <Carousel apiKey={apiKey} type="now_playing" clientType="Now Playing"/>
-                <Carousel apiKey={apiKey} type="popular" clientType="Popular"/>
-                <Carousel apiKey={apiKey} type="top_rated" clientType="Top Rated"/>
-                <Carousel apiKey={apiKey} type="upcoming" clientType="Upcoming"/>
+                <Carousel apiKey={apiKey} type="now_playing" clientType="Now Playing" page="1"/>
+                <Carousel apiKey={apiKey} type="popular" clientType="Popular" page="2"/>
+                <Carousel apiKey={apiKey} type="top_rated" clientType="Top Rated" page="1"/>
+                <Carousel apiKey={apiKey} type="upcoming" clientType="Upcoming" page="1"/>
             </div>
         </>
     )   

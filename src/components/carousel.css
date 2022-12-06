@@ -5,8 +5,17 @@
 }
 
 .carousel-container h2{
+    display: flex;
+    align-items: center;
     color: #fff;
     font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.carousel-container > h2 span{
+    color: #d8315b;
+    font-size: 1.3rem;
+    margin-right: 10px;
 }
 
 .carousel{
@@ -16,7 +25,6 @@
     margin-top: 20px;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    height: 460px;
 }
 
 .carousel::-webkit-scrollbar{
@@ -26,7 +34,7 @@
 .prev-card{
     position: absolute;
     top: 60px;
-    left: 0;
+    left: -1px;
     width: 100px;
     height: calc(100% - 60px);
     background-image: linear-gradient(to left, transparent, #000);
@@ -34,7 +42,7 @@
 
 .icon-prev{
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 0px;
     transform: translate(0, -50%);
     color: #4703A6;
@@ -45,7 +53,7 @@
 .next-card{
     position: absolute;
     top: 60px;
-    left: 100%;
+    left: calc(100% + 1px);
     transform: translate(-100%, 0);
     width: 100px;
     height: calc(100% - 60px);
@@ -54,7 +62,7 @@
 
 .icon-next{
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: calc(100% - 50px);
     transform: translate(0, -50%);
     color: #4703A6;

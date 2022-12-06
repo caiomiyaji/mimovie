@@ -1,5 +1,5 @@
 header{
-    margin-bottom: 50px;
+    padding: 15px 0;
 }
 
 .header-container{
@@ -13,6 +13,7 @@ header{
 
 header span{
     font-size: 2rem;
+    font-weight: 600;
     color: #4703A6;
 }
 
