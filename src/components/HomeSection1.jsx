@@ -31,7 +31,7 @@ function HomeSection1 ({apiKey}) {
 
     return(
         <section>
-            <Youtube videoId="I9B6rwW35GQ"/>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/I9B6rwW35GQ?enablejsapi=1&origin=http://127.0.0.1:5173/" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </section>
     )
 }
