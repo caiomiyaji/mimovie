@@ -1,5 +1,12 @@
 header{
     padding: 15px 0;
+
+    position: absolute;
+    z-index: 7;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
 }
 
 .header-container{

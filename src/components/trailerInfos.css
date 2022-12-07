@@ -1,0 +1,51 @@
+.trailer-container{
+    position: relative;
+    min-width: 100%;
+    background-color: red;
+}
+
+.trailer-container img {
+    width: 100%;
+}
+
+.trailer-infos{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+}
+
+.trailer-movie-infos{
+    display: flex;
+    gap: 50px;
+    width: 80%;
+    height: 50%;
+}
+
+.trailer-movie-infos h1{
+    color: #fff;
+    font-size: 4rem;
+}
+
+.trailer-movie-infos h3{
+    margin-top: 20px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: normal;
+    text-shadow: 2px 2px 2px black;
+}
+
+.trailer-left{
+    width: 50%;
+    height: 100%;
+}
+
+.trailer-right{
+    width: 50%;
+    height: 100%;
+}

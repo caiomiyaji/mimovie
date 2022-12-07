@@ -1,5 +1,8 @@
 .movies-carousel{
     display: flex;
     flex-direction: column;
+    margin: auto;
     gap: 50px;
+    max-width: 1600px;
+    padding: 0 20px;
 }
