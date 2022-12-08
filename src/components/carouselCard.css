@@ -61,6 +61,7 @@
 
 .card-genres{
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -81,4 +82,21 @@
 .rating-container p{
     color: #fff;
     font-size: .8rem;
+}
+
+@media screen and (max-width: 1300px) {
+    .card{
+        min-width: 300px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .card{
+        min-width: 250px;
+    }
+
+    .card h3{
+        margin-top: 5px;
+        font-size: 1rem;
+    }
 }

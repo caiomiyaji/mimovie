@@ -1,17 +1,27 @@
 import trailers from '../trailers/trailers'
 import { useEffect, useState, useRef } from 'react';
 import TrailerInfos from './TrailerInfos';
-import { BiTime } from 'react-icons/bi'
-import { AiOutlineStar } from 'react-icons/ai'
+import Modal from 'react-modal';
 import ReactPlayer from 'react-player';
 
+//icons
+import { BiTime } from 'react-icons/bi'
+import { AiOutlineStar } from 'react-icons/ai'
+
+//css
 import './homeSection.css';
+import './modal.css'
+
+//react-modal
+Modal.setAppElement('#root');
 
 function HomeSection1 ({apiKey}) {
 
     const movieUrl = import.meta.env.VITE_MOVIE_URL;
     const imgUrl = import.meta.env.VITE_IMG_URL;
 
+    const [modalVisibility, setModalVisibility] = useState(false);
+    const [trailerVideo, setTrailerVideo] = useState('');
     const container = useRef();
 
     let right = true;
@@ -52,7 +62,7 @@ function HomeSection1 ({apiKey}) {
                                 <span key={genre.id}>{genre.name}</span>
                             ))}
                     </div>
-                    <button>Watch trailer</button>
+                    <button onClick={() => handleModal(id)}>Watch Trailer</button>
                 </div>
             </div>
         );
@@ -65,7 +75,7 @@ function HomeSection1 ({apiKey}) {
 
     const handleTrailers = () => {
         const currentTrailer = container.current.querySelector(`#id${trailerIndex}`);
-        console.log(currentTrailer)
+
         if(right){
             container.current.scrollTo(
                 {
@@ -87,6 +97,17 @@ function HomeSection1 ({apiKey}) {
         }
     }
 
+    const handleModal = (id) => {
+        if(id){
+            const video = trailers.find((trailer) => {
+                return trailer.id === id;
+            }) 
+            setTrailerVideo(video.video_link)
+        }
+
+        setModalVisibility(!modalVisibility)
+    }
+
     return(
         <section>
             <div className='section1-container' ref={container} onScroll={() => handleScroll()}>
@@ -94,6 +115,9 @@ function HomeSection1 ({apiKey}) {
                     <TrailerInfos key={trailer.id} index={index} trailer={trailers[index]} imgUrl={imgUrl} retrieveMovie={retrieveMovie}/>
                 ))}
             </div>
+            <Modal isOpen={modalVisibility} className="my-modal" overlayClassName="my-overlay" onRequestClose={() => handleModal()}>
+                <ReactPlayer url={trailerVideo} width="90%" height="100%" controls className="section1-player"/>
+            </Modal>
         </section>
     )
 }
