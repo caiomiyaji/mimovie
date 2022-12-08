@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import './trailerInfos.css'
 
-function TrailerInfos ({trailer, imgUrl, retrieveMovie}) {
+function TrailerInfos ({index, trailer, imgUrl, retrieveMovie}) {
 
     const [infos, setInfos] = useState(null);
 
@@ -11,7 +11,7 @@ function TrailerInfos ({trailer, imgUrl, retrieveMovie}) {
     },[])
 
     return(
-        <div key={trailer.id} className="trailer-container">
+        <div id={`id${index}`} key={trailer.id} className="trailer-container">
             <img src={`${imgUrl}/original/${trailer.poster}`} alt={trailer.title} />
             <div className="trailer-infos">
                 {infos}
