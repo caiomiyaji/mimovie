@@ -19,7 +19,7 @@
     transition: opacity .5s ease-in-out, transform .5s ease-in-out;
 }
 
-.card:hover img, .card:focus img{
+.card:hover img, .card:active img{
     transform: scale(1.4);
     opacity: 0.5;
 }
@@ -36,7 +36,7 @@
     transition: opacity .5s ease-in-out;
 }
 
-.card:hover .card-play-icon, .card:focus .card-play-icon{
+.card:hover .card-play-icon, .card:active .card-play-icon{
     opacity: 1;
 }
 

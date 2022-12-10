@@ -1,0 +1,25 @@
+.section1-movie-content{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.movie-poster-trailer{
+    display: flex;
+    flex-grow: 1;
+    max-width: 1600px;
+    height: 100%;
+    padding: 0px 20px;
+    background-color: red;
+}
+
+.movie-poster-left{
+    width: 50%;
+    background-color: green;
+}
+
+.movie-trailer-right{
+    width: 50%;
+    background-color: blue;
+}   

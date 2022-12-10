@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import MovieContent from '../components/Movie/MovieContent';
 
 //components
 import MovieSection1 from '../components/Movie/MovieSection1';
@@ -34,10 +35,10 @@ function Movie () {
     }
 
     return(
-        <>
+        <div className='movie-page'>
             <MovieSection1 movie={movie} imgUrl={imgUrl}/>
-            
-        </>
+            <MovieContent movie={movie} imgUrl={imgUrl}/>
+        </div>
     )
 }
 
