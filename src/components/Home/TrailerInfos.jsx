@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+//css
 import './trailerInfos.css'
 
 function TrailerInfos ({index, trailer, imgUrl, retrieveMovie}) {

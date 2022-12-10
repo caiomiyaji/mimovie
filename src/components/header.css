@@ -18,10 +18,12 @@ header{
     padding: 0 20px;
 }
 
-header span{
+.logo{
     font-size: 2rem;
     font-weight: 600;
     color: #4703A6;
+    font-family: 'Urbanist', sans-serif;
+    text-decoration: none;
 }
 
 header nav ul {

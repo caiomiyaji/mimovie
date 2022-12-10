@@ -1,11 +1,18 @@
+import { useNavigate } from 'react-router-dom'
+
+//icons
 import { HiStar } from 'react-icons/hi'
 import { BsPlayCircleFill } from 'react-icons/bs'
+
+//css
 import './carouselCard.css'
 
 function CarouselCard ({movie, imgUrl}) {
 
+    const navigate = useNavigate();
+
     return(
-            <div className="card">
+            <div className="card" onClick={() => navigate(`./movie/${movie.id}`)}>
                 <figure>
                     <img src={`${imgUrl}/w500/${movie.backdrop_path}`} alt={movie.title} />
                     <BsPlayCircleFill className='card-play-icon'/>

@@ -1,0 +1,67 @@
+.my-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.my-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    border-radius: 10px;
+    outline: none;
+    aspect-ratio: 16 / 9;
+}
+
+.section1-close-trailer{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.section1-player{
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 90%;
+    min-height: 90%;
+}
+
+@media screen and (max-width: 1200px) {
+    .my-modal{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .my-modal{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .my-modal{
+        width: 95%;
+    }
+
+    .section1-close-trailer{
+        font-size: 1.5rem;
+    }
+
+    .section1-player{
+        max-width: 90%;
+        max-height: 90%;
+    }
+}

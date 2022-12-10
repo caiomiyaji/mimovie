@@ -1,6 +1,7 @@
-import Carousel from '../components/Carousel'
-import HomeSection1 from '../components/HomeSection1';
+import Carousel from '../components/Home/Carousel'
+import HomeSection1 from '../components/Home/HomeSection1';
 
+//css
 import './home.css';
 
 function Home () {

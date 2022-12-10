@@ -1,7 +1,11 @@
+//icons
 import { useEffect, useState, useRef } from "react";
 import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io';
+
+//components
 import CarouselCard from "./CarouselCard";
 
+//css
 import './carousel.css'
 
 function Carousel ({apiKey, type, clientType, page}) {

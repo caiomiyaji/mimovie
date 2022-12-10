@@ -1,4 +1,6 @@
 import {Link} from 'react-router-dom';
+
+//css
 import './header.css';
 
 function Header () {
@@ -6,7 +8,7 @@ function Header () {
         <header>
             <div className='header-container'>
                 <div>
-                    <span>MiMovie</span>
+                    <Link to="/" className='logo'>MiMovie</Link>
                 </div>
                 <nav>
                     <ul>
