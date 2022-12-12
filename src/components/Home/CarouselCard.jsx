@@ -11,8 +11,17 @@ function CarouselCard ({movie, imgUrl}) {
 
     const navigate = useNavigate();
 
+    const goToPageMovie = () => {
+        navigate(`./movie/${movie.id}`);
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }
+
     return(
-            <div className="card" onClick={() => navigate(`./movie/${movie.id}`)}>
+            <div className="card" onClick={() => goToPageMovie()}>
                 <figure>
                     <img src={`${imgUrl}/w500/${movie.backdrop_path}`} alt={movie.title} />
                     <BsPlayCircleFill className='card-play-icon'/>

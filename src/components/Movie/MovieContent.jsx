@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 
 //icons
@@ -46,7 +45,7 @@ function MovieContent ({movie, imgUrl, trailerKey, crew}){
                     </div>
                     <div className='movie-crew-container'>
                         <div className='movie-crew'>
-                            {crew.slice(0, 3)?.map((crew, index) => (
+                            {crew.slice(0, 2)?.map((crew, index) => (
                                 <div key={index}>
                                     <p>{crew.name}</p>
                                     <p className='current-crew-job'>{crew.job}</p>
@@ -54,7 +53,7 @@ function MovieContent ({movie, imgUrl, trailerKey, crew}){
                             ))}
                         </div>
                         <div className='movie-crew'>
-                            {crew.slice(3, 6)?.map((crew, index) => (
+                            {crew.slice(2, 4)?.map((crew, index) => (
                                 <div key={index}>
                                     <p>{crew.name}</p>
                                     <p className='current-crew-job'>{crew.job}</p>
