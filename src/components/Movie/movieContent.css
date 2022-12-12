@@ -1,25 +1,118 @@
 .section1-movie-content{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 150px;
     display: flex;
-    justify-content: center;
-    height: 100%;
-    scroll-snap-align: start;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    padding: 0px 20px;
+    color: #fff;
 }
 
-.movie-poster-trailer{
+.movie-poster-infos{
     display: flex;
-    flex-grow: 1;
-    max-width: 1600px;
-    height: 100%;
-    padding: 0px 20px;
-    background-color: red;
+    gap: 40px;
+    width: 100%;
 }
 
 .movie-poster-left{
-    width: 50%;
-    background-color: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.movie-trailer-right{
-    width: 50%;
-    background-color: blue;
+.movie-poster-image{
+    width: 400px;
+    border-radius: 10px;
+}
+
+.movie-infos-right{
+    display: flex;
+    flex-direction: column;
+
 }   
+
+.movie-infos-right h2{
+    font-size: 2rem;
+}   
+
+.movie-info-overview{
+    margin-top: 50px;
+    font-size: 1rem;
+}
+
+.movie-main-infos{
+    display: flex;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.movie-runtime, .movie-rating{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.movie-runtime-icon, .movie-rating-icon{
+    font-size: 1.6rem;
+}
+
+.movie-rating-icon{
+    color: #ffae00;
+}
+
+.movie-date{
+    background-color: #D8315B;
+    padding: 1px 10px;
+    border-radius: 10px;
+}
+
+.movie-genres{
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.movie-genres span, .movie-languages span{
+    color: #D8315B;
+}
+
+.movie-languages, .movie-crew-container{
+    margin-top: 50px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.movie-crew{
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.current-crew-job{
+    margin-top: 5px;
+    font-size: 0.8rem;
+    text-decoration: underline;
+}
+
+.movie-trailer-section{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.movie-trailer-player{
+    min-width: 100%;
+    min-height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
