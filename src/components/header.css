@@ -26,17 +26,48 @@ header{
     text-decoration: none;
 }
 
-header nav ul {
+nav{
     display: flex;
-    gap: 20px;
+    align-items: center;
 }
 
-header ul li {
-    list-style: none;
+.header-search-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 0 10px;
+    border: 2px solid transparent;
 }
 
-.nav-link{
+.header-search-container-border{
+    border: 2px solid #4703A6;
+}
+
+.header-search-input{
+    opacity: 0;
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+    width: 0px;
+    outline: none;
+    background-color: transparent;
     color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
+    transition: width .5s ease-in-out;
+}
+
+.header-search-input:focus{
+    opacity: 1;
+    width: 300px;
+}
+
+.header-search-icon{
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color .5s ease-in-out;
+}
+
+.header-search-icon:hover{
+    color: #4703a6;
 }

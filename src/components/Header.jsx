@@ -1,9 +1,40 @@
-import {Link} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react';
+
+//icons
+import { BiSearch } from 'react-icons/bi'
 
 //css
 import './header.css';
 
 function Header () {
+
+    const searchInput = useRef();
+    const navigate = useNavigate();
+
+    const [searchContainerClass, setSearchContainerClass] = useState('header-search-container');
+    const [searchValue, setSearchValue] = useState('')
+
+    const setFocusToSearch = () => {
+        searchInput.current.focus()
+    }
+
+    const handleInputBlur = () => {
+        setTimeout(() => {
+            setSearchContainerClass('header-search-container')
+        }, 450);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate(`/movies?query=${searchValue}`);
+        setSearchValue('');  
+    }
+
+    const handleValue = (e) => {
+        setSearchValue(e.target.value)
+    }
+
     return(
         <header>
             <div className='header-container'>
@@ -11,10 +42,12 @@ function Header () {
                     <Link to="/" className='logo'>MiMovie</Link>
                 </div>
                 <nav>
-                    <ul>
-                        <li><Link to="/" className='nav-link'>Home</Link></li>
-                        <li><Link to="/movie" className='nav-link'>Movies</Link></li>
-                    </ul>
+                    <div className={searchContainerClass}>
+                        <form onSubmit={(e) => handleSubmit(e)}>
+                            <input className='header-search-input' ref={searchInput} type="text" name="search" id="search" value={searchValue} placeholder='Search for a movie' onChange={(e) => handleValue(e)} onBlur={() => handleInputBlur()} onFocus={() => setSearchContainerClass('header-search-container header-search-container-border')}/>
+                        </form>
+                        <BiSearch className='header-search-icon' onClick={() => setFocusToSearch()}/>
+                    </div>
                 </nav>
             </div>
         </header>

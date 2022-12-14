@@ -1,0 +1,10 @@
+.movies-list-page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 100px;
+    margin: auto;
+    padding: 0 20px;
+    background-color: red;
+}
