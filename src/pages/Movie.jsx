@@ -4,6 +4,7 @@ import MovieContent from '../components/Movie/MovieContent';
 
 //components
 import MovieSection1 from '../components/Movie/MovieSection1';
+import Loader from '../components/Loader';
 
 //css
 import './movie.css';
@@ -18,6 +19,7 @@ function Movie () {
     let effect = true;
 
     const {id} = useParams();
+    const [loader, setLoader] = useState({movie: true, trailer: true, crew: true});
     const [movie, setMovie] = useState({});
     const [trailerKey, setTrailerKey] = useState('');
     const [crew, setCrew] = useState([]);
@@ -36,6 +38,7 @@ function Movie () {
         const movieContent = await movieData.json();
     
         setMovie(movieContent)
+        setLoader({movie: false, trailer: loader.trailer, crew: loader.crew})
     }
 
     const retrieveTrailer = async (id) => {
@@ -49,6 +52,7 @@ function Movie () {
                 setTrailerKey(trailer.key)
             }
         })
+        setLoader({movie: loader.movie, trailer: false, crew: loader.crew})
     }
 
     const retrieveCrew = async (id) => {
@@ -57,12 +61,14 @@ function Movie () {
         const crewList = await crewJson.crew;
 
         setCrew(crewList)
+        setLoader({movie: loader.movie, trailer: loader.trailer, crew: false})
     }
 
     return(
         <div className='movie-page'>
             <MovieSection1 movie={movie} imgUrl={imgUrl}/>
             <MovieContent movie={movie} imgUrl={imgUrl} trailerKey={trailerKey} crew={crew}/>
+            {loader.movie === true && loader.trailer === true && loader.crew === true && <Loader />}
         </div>
     )
 }

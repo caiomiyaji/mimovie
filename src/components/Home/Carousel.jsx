@@ -8,7 +8,7 @@ import CarouselCard from "./CarouselCard";
 //css
 import './carousel.css'
 
-function Carousel ({apiKey, type, clientType, page}) {
+function Carousel ({apiKey, type, clientType, page, handleLoader}) {
 
     const movieUrl = import.meta.env.VITE_MOVIE_URL;
     const imgUrl = import.meta.env.VITE_IMG_URL;
@@ -43,6 +43,7 @@ function Carousel ({apiKey, type, clientType, page}) {
         }))
 
         setMovies(moviesList)
+        handleLoader();
     }
 
     const retrieveCurrentMovieGenres = async (movie) => {

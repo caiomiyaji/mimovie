@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CarouselCard from '../components/Home/CarouselCard';
+import Loader from '../components/Loader';
 
 //icons
 import { RiLoader2Fill } from 'react-icons/ri'
@@ -17,6 +18,7 @@ function MoviesList () {
 
     const [params] = useSearchParams();
 
+    const [loader, setLoader] = useState(true);
     const [movies, setMovies] = useState([]);
     const [totalResults, setTotalResults] = useState();
     const [page, setPage] = useState(0);
@@ -74,6 +76,7 @@ function MoviesList () {
         movies ? setMovies((prevMovies) => [...prevMovies, ...moviesResults]) : setMovies(moviesResults);
         setTotalResults(moviesList.total_results);
         setTotalPages(moviesList.total_pages);
+        setLoader(false);
     }
 
     const retrieveCurrentMovieGenres = async (movie) => {
@@ -99,6 +102,7 @@ function MoviesList () {
             <div className='load-detector' ref={loadDetector}>
                 {page < totalPages && <RiLoader2Fill className='movies-loader-icon'/> }
             </div>
+            {loader && <Loader />}
         </div>
     )
 }
