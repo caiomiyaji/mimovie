@@ -17,7 +17,7 @@ function MovieContent ({movie, imgUrl, trailerKey, crew}){
         <section id='movieContent' className='section1-movie-content'>
             <div className='movie-poster-infos'>
                 <div className='movie-poster-left'>
-                    <img className='movie-poster-image' src={`${imgUrl}/w500/${movie.poster_path}`} alt={movie.title} />
+                    <img className='movie-poster-image' src={movie.poster_path && `${imgUrl}/w500/${movie.poster_path}`} alt={movie.title} />
                 </div>
                 <div className='movie-infos-right'>
                     <h2>{movie.title}</h2>

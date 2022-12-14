@@ -5,6 +5,46 @@
     max-width: 1600px;
     min-height: 100px;
     margin: auto;
+    margin-top: 150px;
     padding: 0 20px;
-    background-color: red;
+}
+
+.movies-list-page > h1{
+    color: #d8315b;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.movies-list-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.load-detector{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0  ;
+    width: 100%;
+    height: 50px;
+}
+
+.movies-loader-icon{
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    animation: rotate infinite 1.2s alternate;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+        color: #d8315b;
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }

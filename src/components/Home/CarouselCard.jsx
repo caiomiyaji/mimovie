@@ -7,12 +7,11 @@ import { BsPlayCircleFill } from 'react-icons/bs'
 //css
 import './carouselCard.css'
 
-function CarouselCard ({movie, imgUrl}) {
-
+function CarouselCard ({movie, imgUrl, poster}) {
     const navigate = useNavigate();
 
     const goToPageMovie = () => {
-        navigate(`./movie/${movie.id}`);
+        navigate(`/movie/${movie.id}`);
         window.scrollTo({
             top: 0,
             left: 0,
@@ -23,13 +22,13 @@ function CarouselCard ({movie, imgUrl}) {
     return(
             <div className="card" onClick={() => goToPageMovie()}>
                 <figure>
-                    <img src={`${imgUrl}/w500/${movie.backdrop_path}`} alt={movie.title} />
+                    <img src={`${imgUrl}/w500/${poster ? poster : movie.backdrop_path}`} alt={movie.title} />
                     <BsPlayCircleFill className='card-play-icon'/>
                 </figure>
                 <h3>{movie.title}</h3>
                 <div className='card-infos'>
                     <div className='card-genres'>
-                        {movie.genres_names.map((genre, index) => (
+                        {movie.genres_names?.map((genre, index) => (
                             <p key={index}><span>♦ </span>{genre}</p>
                         ))}
                     </div>

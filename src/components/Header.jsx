@@ -27,8 +27,11 @@ function Header () {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate(`/movies?query=${searchValue}`);
-        setSearchValue('');  
+        if(searchValue.length > 0){
+            navigate(`/movies?query=${searchValue}`);
+            setSearchValue('');
+            document.activeElement.blur()
+        }
     }
 
     const handleValue = (e) => {
@@ -44,9 +47,11 @@ function Header () {
                 <nav>
                     <div className={searchContainerClass}>
                         <form onSubmit={(e) => handleSubmit(e)}>
-                            <input className='header-search-input' ref={searchInput} type="text" name="search" id="search" value={searchValue} placeholder='Search for a movie' onChange={(e) => handleValue(e)} onBlur={() => handleInputBlur()} onFocus={() => setSearchContainerClass('header-search-container header-search-container-border')}/>
+                            <input className='header-search-input' ref={searchInput} type="text" name="search" id="search" value={searchValue} placeholder='Search for a movie' onChange={(e) => handleValue(e)} onBlur={() => handleInputBlur()} onFocus={() => {
+                                setSearchContainerClass('header-search-container header-search-container-border');
+                            }}/>
                         </form>
-                        <BiSearch className='header-search-icon' onClick={() => setFocusToSearch()}/>
+                        <BiSearch className='header-search-icon' onClick={document.activeElement === searchInput.current ? (e) => handleSubmit(e) : () => setFocusToSearch()}/>
                     </div>
                 </nav>
             </div>

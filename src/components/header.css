@@ -71,3 +71,28 @@ nav{
 .header-search-icon:hover{
     color: #4703a6;
 }
+
+@media screen and (max-width: 670px) {
+    .header-search-input:focus{
+        opacity: 1;
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo{
+        font-size: 1.8rem;
+    }
+
+    .header-search-input:focus{
+        opacity: 1;
+        width: 125px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .header-search-input:focus{
+        opacity: 1;
+        width: 90px;
+    }
+}
