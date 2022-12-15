@@ -1,0 +1,61 @@
+footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    padding: 50px 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #000 5%, #0f0024 90%);
+    z-index: 1;
+}
+
+.footer-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 20px;
+}
+
+.footer-logo-container{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-logo{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    font-family: 'Urbanist', sans-serif;
+    text-decoration: none;
+}
+
+.follow-us{
+    margin-top: 50px;
+    margin-bottom: 25px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.footer-icons-container{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.footer-icons{
+    font-size: 2rem;
+    color: #fff;
+}
+
+.github-icon{
+    font-size: 2.33rem;
+    margin: -2.2px;
+}
+
+.tmdb-logo{
+    margin-top: 50px;
+    width: 80px;
+}

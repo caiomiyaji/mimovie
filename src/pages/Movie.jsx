@@ -65,10 +65,12 @@ function Movie () {
     }
 
     return(
-        <div className='movie-page'>
-            <MovieSection1 movie={movie} imgUrl={imgUrl}/>
-            <MovieContent movie={movie} imgUrl={imgUrl} trailerKey={trailerKey} crew={crew}/>
-            {loader.movie === true && loader.trailer === true && loader.crew === true && <Loader />}
+        <div>
+            <div className='movie-page'>
+                <MovieSection1 movie={movie} imgUrl={imgUrl}/>
+                <MovieContent movie={movie} imgUrl={imgUrl} trailerKey={trailerKey} crew={crew}/>
+                {loader.movie === true && loader.trailer === true && loader.crew === true && <Loader />}
+            </div>
         </div>
     )
 }

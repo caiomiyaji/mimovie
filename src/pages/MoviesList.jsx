@@ -48,7 +48,11 @@ function MoviesList () {
     useEffect(() => {
         if(effect2){
             effect2 = false;
-            page > 0 && retrieveMovies();
+            if(page > 0 && params.get('query').length > 0){
+                retrieveMovies();
+            }else{
+                setLoader(false);
+            }
         }
     }, [page])
 
@@ -93,7 +97,7 @@ function MoviesList () {
 
     return(
         <div className="movies-list-page">
-            <h1>{totalResults} results for: {params.get('query')}</h1>
+            {params.get('query').length > 0 &&  <h1>{totalResults} results for: {params.get('query')}</h1>}
             <div className='movies-list-container'>
                 {movies?.map((movie, index) => (
                     <CarouselCard key={index} movie={movie} imgUrl={imgUrl} poster={movie.poster_path}/>
