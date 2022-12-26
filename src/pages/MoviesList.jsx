@@ -3,6 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import CarouselCard from '../components/Home/CarouselCard';
 import Loader from '../components/Loader';
 
+//svg
+import emptySearch from '../assets/empty.svg'
+
 //icons
 import { RiLoader2Fill } from 'react-icons/ri'
 
@@ -48,7 +51,7 @@ function MoviesList () {
     useEffect(() => {
         if(effect2){
             effect2 = false;
-            if(page > 0 && params.get('query').length > 0){
+            if(page > 0 && params.has('query') && params.get('query').length > 0){
                 retrieveMovies();
             }else{
                 setLoader(false);
@@ -95,9 +98,24 @@ function MoviesList () {
         return genresNames;
     } 
 
+    const queryExists = () => {
+        if(params.has('query') === true){
+            if(params.get('query').length > 0){
+                return <h1>{totalResults} results for: {params.get('query')}</h1>
+            }else{
+                return(
+                <div className='movies-list-empty'>
+                    <img src={emptySearch} alt="Empty search" />
+                    <h3>Your query must haver a value...</h3>
+                </div> 
+                )
+            }
+        }
+    }
+
     return(
         <div className="movies-list-page">
-            {params.get('query').length > 0 &&  <h1>{totalResults} results for: {params.get('query')}</h1>}
+            {queryExists()}
             <div className='movies-list-container'>
                 {movies?.map((movie, index) => (
                     <CarouselCard key={index} movie={movie} imgUrl={imgUrl} poster={movie.poster_path}/>

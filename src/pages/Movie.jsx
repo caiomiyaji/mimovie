@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import MovieContent from '../components/Movie/MovieContent';
+import NotFound from  './NotFound'; 
 
 //components
 import MovieSection1 from '../components/Movie/MovieSection1';
@@ -21,6 +22,7 @@ function Movie () {
     const {id} = useParams();
     const [loader, setLoader] = useState({movie: true, trailer: true, crew: true});
     const [movie, setMovie] = useState({});
+    const [notFoundMovie, setNotFoundMovie] = useState(false);
     const [trailerKey, setTrailerKey] = useState('');
     const [crew, setCrew] = useState([]);
 
@@ -36,9 +38,10 @@ function Movie () {
     const retrieveMovie = async (id) => {
         const movieData = await fetch(`${movieUrl}/${id}?api_key=${apiKey}`);
         const movieContent = await movieData.json();
-    
+        
         setMovie(movieContent)
-        setLoader({movie: false, trailer: loader.trailer, crew: loader.crew})
+        setLoader({movie: false, trailer: loader.trailer, crew: loader.crew}) 
+        if (!movieContent.title) setNotFoundMovie(true);
     }
 
     const retrieveTrailer = async (id) => {
@@ -46,7 +49,7 @@ function Movie () {
         const trailer = await trailerData.json();
         let trailerFounded = false;
 
-        trailer.results.forEach((trailer) => {
+        trailer.results?.forEach((trailer) => {
             if(trailer.official === true && trailerFounded === false){
                 trailerFounded = true
                 setTrailerKey(trailer.key)
@@ -66,11 +69,11 @@ function Movie () {
 
     return(
         <div>
-            <div className='movie-page'>
+            {notFoundMovie === false ? <div className='movie-page'>
                 <MovieSection1 movie={movie} imgUrl={imgUrl}/>
                 <MovieContent movie={movie} imgUrl={imgUrl} trailerKey={trailerKey} crew={crew}/>
                 {loader.movie === true && loader.trailer === true && loader.crew === true && <Loader />}
-            </div>
+            </div> : <NotFound/>}
         </div>
     )
 }

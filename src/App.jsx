@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Movie from './pages/Movie';
 import MoviesList from './pages/MoviesList'
+import NotFound from './pages/NotFound';
 
 //css
 import './App.css';
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/movies' element={<MoviesList />}/>
         <Route path='/movie/:id' element={<Movie />}/>
+        <Route path='*' element={<NotFound />}/>
       </Routes>
     </div>
   )
